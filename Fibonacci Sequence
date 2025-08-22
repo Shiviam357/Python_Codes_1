@@ -1,0 +1,10 @@
+def fibonacci_sequence(start_sequence, length):
+    a=start_sequence[0]
+    b=start_sequence[1]
+    if length==0: return([])
+    elif length==1: return(start_sequence[0:-1])#start_sequence[0]=>returns the element while start_sequence[0:-1]=>list
+    else:
+        for i in range(2,length): 
+            c=a+b;        a=b;        b=c
+            start_sequence.append(c)
+        return start_sequence
