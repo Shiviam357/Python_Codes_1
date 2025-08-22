@@ -1,0 +1,17 @@
+def is_valid_number(n, base):
+    v=False #v =bool type
+    if 2<=base<=10: #check base
+        for e in n:
+            if e.isnumeric()==True and 0<=int(e)<base:v=True
+            else: 
+                v=False
+                break
+    elif 11<=base<=36:#check base
+        for e in n:
+            if e.isnumeric()==True and 0<=int(e)<base: v=True
+            #ord(A-Z)=65-90=>-64=>1-26 and ord(a-z)=>97-122=>-96=>1-26
+            elif e.isalpha()==True and (1<=(ord(e)-64)<=(base-10) or 1<=(ord(e)-96)<=(base-10)): v=True
+            else: 
+                v=False
+                break
+    return v
