@@ -1,0 +1,24 @@
+def jbelmu(text):
+    TEXT=text.split();    order=[];     index=[];    temp=""; texting=""
+    for i in range (0,len(TEXT)):
+        if len(TEXT[i])>2:#filter index with words with more than 2 letter
+            index.append(i)
+        else: continue
+    for i in index:#condition #2
+        temp1=TEXT[i]
+        for t in temp1[1:-1]:#considering only 2nd to 2nd last letter of the word
+            if 97<=ord(t)<=122:#ASCII:a=97;z=122
+                order.append(ord(t))#appending the order
+        order=sorted(order)#sorting the order list alphabetically
+        temp2=temp1;        temp1=""#reset temp str to null string
+        for o in order:
+            temp=temp+chr(o)#convertin the order list back to charater into str type
+        temp=temp2[0]+temp+temp2[-1]#creating back the word by adding orignal 1st+sorted letters+last letter 
+        TEXT[i]=temp#replacing back the new word in the orignal TEXT list
+        temp=""#reset temp str type for next loop
+        order=[]#rest order list for next loop
+    for T in TEXT:#running the loop for every element of the list TEXT
+        texting=texting+T+" "#converting into str type
+    texting=texting.strip()#removing extra white spaces
+    print(len(texting))
+    return texting.strip()#returing the new str type
