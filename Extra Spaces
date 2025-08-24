@@ -1,0 +1,9 @@
+def space_jam(s):
+    s2=""
+    s=s.replace(" ","")
+    s=s.upper()
+    for s1 in s:
+        s2=s2+s1+"  "
+    print(len(s2.strip()))
+    s=s2.strip()
+    return s
