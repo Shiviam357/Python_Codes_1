@@ -1,0 +1,28 @@
+def mile_pace(miles, duration):
+
+#capturing the minutes from the string thereby converting into int type
+   
+    #[0:-3] from the 0th to 4th last index
+    minutes=int(duration[0:-3]) 
+    #[-2:0] from the 2nd last to last index
+    seconds=int(duration[-2:]) 
+    
+    average=(minutes*60+seconds)/(miles) #in seconds/miles
+#1minute=60seconds #converting seconds>60 to minutes and seconds
+    if average>60:  
+#quotient=average//60=>minutes part
+        whole_part=average//60 
+    
+#remainder=average//60=>minutes part
+        decimal_part=average%60
+        
+#conditions for padding extra zeros to minutes and seconds strings
+    if int(whole_part)>=10 and int(decimal_part)>=10: duration=str(int(whole_part))+":"+str(int(decimal_part))
+    
+    elif int(whole_part)<10 and int(decimal_part)<10: duration="0"+str(int(whole_part))+":0"+str(int(decimal_part))
+    
+    elif int(whole_part)<10 and int(decimal_part)>=10: duration="0"+str(int(whole_part))+":"+str(int(decimal_part))
+    
+    elif int(whole_part)>=10 and int(decimal_part)<10: duration=str(int(whole_part))+":0"+str(int(decimal_part))
+    
+    return duration
