@@ -1,0 +1,24 @@
+def are_anagrams(str1, str2):
+    
+    #replacing whitespaces in strings
+    str1=str1.replace(" ","")
+    str2=str2.replace(" ","")
+    #changing to lower case in strings
+    str1=str1.lower()
+    str2=str2.lower()
+    #finding lenght of str1
+    length=len(str1)
+    
+    #comparing length of both strings and return False in case of mismatch
+    if len(str1)!=len(str2): return False
+    
+    match=0 #initiating match count to zero
+    for i in range(0,len(str2)):
+        for j in range(0,len(str1)):
+            if str1[j]==str2[i]: 
+                match+=1#counting matches made
+                break #break from loop if a match is made to avoid another match
+            else: continue
+        
+    if match==length: return True
+    else: return False
