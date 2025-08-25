@@ -1,0 +1,23 @@
+def squares_with_three(n):
+    count,place_value=0,0
+    
+    #loop to calculate square upto n
+    for i in range(0,n+1):
+        
+        #calculating square
+        place_value=i**2 
+        
+        #loop to check for digit 3 in the square
+        while place_value>0:
+            
+            #check for digit 3 one-by-one in the sqaure
+            if (place_value%10)==3: 
+                
+                count+=1 #increment count for positive result 
+                
+                break #break the loop to avoid counting more than once in the same square
+            
+            place_value=place_value//10 #reduce the sqaure by one place value 
+    
+    #return the total count of digit 3 squares
+    return count 
