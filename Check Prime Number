@@ -1,0 +1,20 @@
+def is_unnatural_prime(n):
+
+#covert to absoulute value
+    n=abs(n)
+
+#intializing index and factor count to Zero
+    index,count=1,0
+
+#loop till index is less than n 
+    while(index<=n):
+
+#check for factors and increment them if remainder is Zero
+        if n%index==0: count+=1
+#increment the index by 1 and for  next loop
+        index+=1
+    
+#Prime numbers only have two factors
+    if count==2: return True
+    else: return False
+    
