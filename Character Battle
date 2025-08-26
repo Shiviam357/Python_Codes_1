@@ -1,0 +1,15 @@
+def battle(my_army, opposing_army):
+    my_wins,opponent_wins=0,0
+    
+    if len(my_army)>len(opposing_army): return "Opponent retreated"
+    elif len(my_army)<len(opposing_army): return "We retreated"
+    
+    elif len(my_army)==len(opposing_army):
+        for i in range(0,len(my_army)):
+            if my_army[i]<opposing_army[i]: opponent_wins+=1
+            elif my_army[i]>opposing_army[i]: my_wins+=1
+            elif my_army[i]==opposing_army[i]: continue
+        
+    if my_wins==opponent_wins: return "It was a tie"
+    elif my_wins>opponent_wins: return "We won"
+    elif my_wins<opponent_wins: return "We lost"
