@@ -1,0 +1,23 @@
+def decode(message, shift):
+    mesg,order="",0
+    for m in message:
+
+#-ive sign will automatically shift decoding in desired directions
+        order=ord(m)-shift
+
+#normal ASCII range 65-90 OR 97-122
+        if 65<=ord(m)<=90 and 65<=order<=90: mesg=mesg+chr(order)
+        elif 97<=ord(m)<=122 and 97<=order<=122: mesg=mesg+chr(order)
+
+#for positive shift
+        elif 65<=ord(m)<=90 and 91<=order<106: mesg=mesg+chr(order-26)
+        elif 97<=ord(m)<=122 and 123<=order<148: mesg=mesg+chr(order-26)
+
+#for negative shift
+        elif 65<=ord(m)<=90 and 40<=order<65: mesg=mesg+chr(order+26)
+        elif 97<=ord(m)<=122 and 72<=order<97: mesg=mesg+chr(order+26)
+
+#add whitespaces, special characters as it is
+        else: mesg=mesg+m
+    message=mesg
+    return message
