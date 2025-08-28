@@ -1,0 +1,10 @@
+def to_camel_case(s):
+    s1,s2="",""            #initializing empty strings s1,s2
+    s=s.title()            #converts all the characters before ws,_,- to lowe and next immediate character to upper case
+    s=s.replace(" ","")    #replace whitespaces
+    s=s.replace("-","")    #replace -
+    s=s.replace("_","")    #replace _
+    s2=s[0]                #only the first charcater needs to be in lower case
+    s1=s[0].lower()        #changing 0th element to lower case
+    s=s.replace(s2,s1,1)   #replacing 0th element with lower case
+    return s
