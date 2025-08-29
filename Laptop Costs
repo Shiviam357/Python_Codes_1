@@ -1,0 +1,7 @@
+def get_laptop_cost(laptops, budget):
+    laptops.sort() #sort the list in asscending order
+#loop to compare the budget with laptop prices
+    for i in range (len(laptops)):
+        if laptops[i-1]<budget<laptops[i]: return(laptops[i-1]) #return the most expensive laptop price if within budget
+        elif budget>laptops[-1]: return(laptops[-2])            #return the 2nd most expensive laptop price if over budget
+        elif budget<laptops[0]: return(0)                       #return 0 no less budget 
