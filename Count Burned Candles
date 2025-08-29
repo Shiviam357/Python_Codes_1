@@ -1,0 +1,15 @@
+def burn_candles(candles, leftovers_needed):
+    
+    burn,ratio=candles,leftovers_needed;    left=0  #counter for leftover candles
+
+#loop until candles are more than or equal to 1
+    while candles>=1:
+        
+        r_candles=candles//ratio    #recycled_candles          = quotient of candles/ratio
+        left=left+candles%ratio     #leftover_candles          = leftover_candles+remainder of candles/ratio
+        l_candles=left//ratio       #leftover_recycled_candles = quotient of candles/ratio
+        left=left%ratio             #leftover_candles          = remainder of candles/ratio
+        candles=r_candles+l_candles #total_recyled_candles     = recycled_candles+leftover_candles
+        burn=burn+candles           #total_burn_candles_count  = summation of number  of burned candles
+    
+    return burn 
