@@ -1,0 +1,32 @@
+#hexcode color generator
+#global variable call
+call=0
+def generate_hex(color):
+    global call #re-defining global variable
+    hex_codes,red,green,blue,d=['A','B','C','D','E','F'],[],[],[],"00"
+
+#loop to generate hex codes by pulling element by element
+    for H in hex_codes:
+        for E in hex_codes:
+#coverting the list type H,E into string type h,e
+            h=str(H); e=str(E)
+#dominant red  hex_code=AA0000-FF0000
+            if color=="red":                code=h+e+d*2;                red.append(code);
+#dominant red  hex_code=00AA00-00FF00
+            elif color=="green":            code=d+h+e+d;                green.append(code);
+#dominant red  hex_code=0000AA-0000FF    
+            elif color=="blue":             code=d*2+h+e;                blue.append(code);
+
+#conditions to check for color and return the appropriate color
+    if color=="red":  color = red[call]
+    elif color=="green": color = green[call]
+    elif color=="blue": color = blue[call]
+        
+#condition to check for other colors and return invalid
+    else: return "Invalid color"
+    
+#increment global variable so that each calling function can return a different variation of color
+    call+=1 
+    
+#return color string type
+    return color
