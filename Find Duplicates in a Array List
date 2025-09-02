@@ -1,0 +1,20 @@
+def find_duplicates(arr):
+#sort the list in asscending order
+    arr.sort()
+#define an empty list duplicate
+    duplicate=[] 
+#loop row to run until length-1 of arr list
+    for row in range(len(arr)): 
+
+#loop column to run from row until length-1 of arr list
+        for column in range(row,len(arr)): 
+#check 
+#contions#1: row is NOT equal to column
+#conditon#2: arr[row] element is equal to arr[column] element
+#conditon#3: row is equal to zero or last element and NOT equal arr[column]
+            if row!=column and arr[row]==arr[column] and (row==0 or duplicate[-1]!=arr[column]): 
+#append the duplicate the element in the duplicate list
+                duplicate.append(arr[column])
+#break the loop to avoid and reduce the code execution
+                break 
+    return duplicate
