@@ -1,0 +1,8 @@
+def rgb_to_hex(rgb):
+    hex_code='#'
+    for i in range(3):
+        code=hex(rgb[i])
+        code=code.replace("0x","") #replace all "0x" with ""
+        if len(code)==1: code="0"+code #add an extra 0 for single digits/characters
+        hex_code=hex_code+code #concatenate
+    return hex_code
