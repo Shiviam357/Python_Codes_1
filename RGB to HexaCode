@@ -1,0 +1,46 @@
+#string type rgb
+def rgb_to_hex(rgb):
+#code = rgb string type, code_index empty list to store index of'(' , ','& ')' and  comma counter
+    code,code_index,comma=rgb,[],0
+
+#loop to find the index of of'(' , ','& ')' 
+    for e in code:
+#if '(': append the index in code_index  list
+        if e=="(": code_index.append(code.index(e)+1)
+        
+#if ',' and comma count equal to zero: append the index in code_index list
+        elif e=="," and comma==0: code_index.append(code.index(e)+1); comma=+1
+        
+#if ',' and comma count equal to 1: append the right_index in code_index  list
+        elif e=="," and comma==1: code_index.append(code.rindex(e)+1)
+        
+#if ')': append the index in code_index  list
+        elif e==")": code_index.append(code.index(e)-1)
+        
+#if white spaceor other characters igonre and continue the loop
+        else: continue
+#for RED Colour select rgb just after '(' until ','
+    code_red=hex(int(rgb[code_index[0]:code_index[1]-1]))
+    
+#replace "0x" with "" and add a "0" if length equal to one or its a single character
+    code_red=code_red.replace("0x","")
+    if len(code_red)==1:code_red="0"+code_red
+
+#for GREEN Colour select rgb just after 1st ',' until 2nd ','
+    code_green=hex(int(rgb[code_index[1]:code_index[2]-1]))
+    
+#replace "0x" with "" and add a "0" if length equal to one or its a single character
+    code_green=code_green.replace("0x","")
+    if len(code_green)==1:code_green="0"+code_green
+
+#for BLUE Colour select rgb just after 2nd ',' until ')'
+    code_blue=hex(int(rgb[code_index[2]:code_index[3]+1]))
+    
+#replace "0x" with empty string "" and add a "0" if length equal to one or its a single character
+    code_blue=code_blue.replace("0x","")
+    if len(code_blue)==1:code_green="0"+code_blue
+        
+#concatenate the string with a '#' in begining and all three red,green & blue hex codes
+    rgb="#"+code_red+code_green+code_blue
+
+    return rgb
