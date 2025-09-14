@@ -1,0 +1,25 @@
+def tribonacci_sequence(start_sequence, length):
+    
+#if length is zero make the start_sequence = null and return start_sequence
+    if length==0: start_sequence=[]; return start_sequence
+    
+#if length is one and return first element of start_sequence or 0th index
+    elif length==1: return start_sequence[:1]
+    
+#if length is two make return first two element of start_sequence or 0th or 1st index
+    elif length==2: return start_sequence[:2]
+    
+#if length is greater than 2 then 
+    elif length>2:
+        
+#loop until length starting from 2
+        for i in range(2,length):
+        
+#sum the last three consecutive elements and append in the list start_sequence
+            start_sequence.append(start_sequence[i-2]+start_sequence[i-1]+start_sequence[i])
+    
+#in case of any other length apart from whole numbers
+    else: return "invalid length"
+    
+#return the array of start_sequence
+    return start_sequence[:length]
