@@ -1,0 +1,42 @@
+def is_pangram(sentence, letters):
+    S,L=[],[] #assign empty list and booleans
+    l_match,L_match,s_match,S_match=False, False, False,False
+    
+    sentence=sentence.lower()          #converting to lower case
+    sentence=sentence.replace(""," ")  #adding white spaces
+    sentence=sentence.strip()          #removing white space from begining and ending
+    S=sentence.split()                 #spliting the string into list
+    S.sort()                           #sort the string into alphabetical order
+
+#loop to shorlist only alphabets a-z
+    for s in S:
+        if 97<=ord(s)<=122: continue #continue loop if an alphabet is found
+        else: S.remove(s) #remove non-alphabetcial characters
+            
+    letters=letters.lower()          #converting to lower case
+    letters=letters.replace(""," ")  #adding white spaces
+    letters=letters.strip()          #removing white space from begining and ending
+    L=letters.split()                #spliting the string into list
+    L.sort()                         #sort the string into alphabetical order
+
+#loop to match all the characters of L(letters) with S(sentence)
+    for l in L:
+        for i in range(len(S)):
+            if l==S[i]: l_match=True; break;
+            else: continue
+        L_match=l_match  #save the Letter_match to for final comparision
+        if l_match==False: break
+        l_match=False   #reset the letter_match to for next loop
+
+#loop to match all the characters of s(sentence) with L(letters)
+    for s in S:
+        for i in range(len(L)):
+            if s==L[i]: s_match=True; break;
+            else: continue
+        S_match=s_match  #save the Sentence_match to for final comparision
+        if s_match==False: break
+        s_match=False    #reset the sentence_match to for next loop
+        
+#for pangram: set of all exclusive characters of both sentence and letters sets should be same 
+    if  L_match==True and S_match==True: return True
+    else: return False
