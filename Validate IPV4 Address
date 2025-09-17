@@ -1,0 +1,40 @@
+def is_valid_ipv4(ipv4):
+    
+#split the ipv4 string on basis of '.' dots into List IPV4
+    IPV4=ipv4.split('.')
+    
+#1: check for length of theIPV4 list equal to four
+    if (len(IPV4)==4):
+        
+#loop till four times
+        for i in range(4):
+        
+#2: check if IPV4[i] is digit
+            if IPV4[i].isdigit()==True:
+        
+#3: check if IPV4[i] is in the inclusive range of 0 to 255
+                if 0<=int(IPV4[i])<=255:
+        
+#4: check and return False if length is greater than one and first element is zero
+                    if len(IPV4[i])>1 and IPV4[i][0]=='0': return False
+    
+#3: otherwise return False if IPV4[i] does not lie in between 0 and 255
+                else: return False
+    
+#2: otherwise return False if IPV4[i] is not a digit
+            else: return False
+    
+#1: otherwise return False if length of IPV4 is not equal to four
+    else: return False  
+    
+#otherwise if all condtions are met then return True  
+    return True
+    
+#return False if IPV4 is not a digit
+            else: return False
+    
+#return False if length of IPV4 is not equal to four
+    else: return False  
+    
+#otherwise if all condtions are met then return True  
+    return True
