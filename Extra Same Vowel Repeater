@@ -1,0 +1,41 @@
+def extra_repeat_vowels(vowels):
+#individual counters for each vowels a,e,i,o,u
+    vowel_count_a,vowel_count_e,vowel_count_i,vowel_count_o,vowel_count_u=0,0,0,0,0
+    vowel_copy=''
+#loop until all the characters of the string vowel
+
+    for v in vowels:
+#check for vowel a or A and increment the respective vowel counter by one
+        if (v=='a' or v=='A'):
+            vowel_count_a+=1
+            if vowel_count_a>1: vowel_copy=vowel_copy+v.lower()*vowel_count_a
+            else: vowel_copy=vowel_copy+v
+                
+#check for vowel e or E and increment the vowel counter by one
+        elif(v=='e' or v=='E'):
+            vowel_count_e+=1
+            if vowel_count_e>1: vowel_copy=vowel_copy+v.lower()*vowel_count_e
+            else: vowel_copy=vowel_copy+v
+                
+#check for vowel i or I and increment the vowel counter by one
+        elif(v=='i' or v=='I'):
+            vowel_count_i+=1
+            if vowel_count_i>1: vowel_copy=vowel_copy+v.lower()*vowel_count_i
+            else: vowel_copy=vowel_copy+v
+                
+#check for vowel o or O and increment the vowel counter by one
+        elif(v=='o' or v=='O'):
+            vowel_count_o+=1
+            if vowel_count_o>1: vowel_copy=vowel_copy+v.lower()*vowel_count_o
+            else: vowel_copy=vowel_copy+v
+                
+#check for vowel u or U and increment the vowel counter by one
+        elif(v=='u' or v=='U'):
+            vowel_count_u+=1
+            if vowel_count_u>1: vowel_copy=vowel_copy+v.lower()*vowel_count_u
+            else: vowel_copy=vowel_copy+v
+
+#for consonants including special characters ingnore by concatenating them
+        else: vowel_copy=vowel_copy+v
+    vowels=vowel_copy
+    return vowels
