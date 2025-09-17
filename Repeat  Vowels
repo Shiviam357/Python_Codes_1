@@ -1,0 +1,24 @@
+def repeat_vowels(vowels):
+    
+#vowel counter intiated to zero and an empty string vowel_copy
+    vowel_counter,vowel_copy=0,''
+    
+#loop for all the characters in the string vowels
+    for v in vowels:
+        
+#check for vowels both upper and lower case
+        if(v=='a'or v=='A'or v=='e'or v=='E'or v=='i'or v=='I'or v=='o'or v=='O'or v=='u'or v=='U'):
+
+#first concatenate vowel_copy with v and lower_case of  v into vowel_counter
+            vowel_copy=vowel_copy+v+v.lower()*vowel_counter
+#then increment the counter
+            vowel_counter+=1
+        
+#otherwise for non-vowels,  simply concatenate in vowel_copy
+        else: vowel_copy=vowel_copy+v
+        
+#assign the string vowel_copy back to vowels
+    vowels=vowel_copy
+    
+#return the desired new string vowels
+    return vowels
