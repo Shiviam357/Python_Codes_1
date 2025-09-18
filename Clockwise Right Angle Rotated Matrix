@@ -1,0 +1,35 @@
+def clockwise_right_angle_rotate(matrix):
+    matrix_rotate,matrix_transpose=[],[]
+    row_count,column_count=0,0
+    
+#matrix dimensions row x column => 2x2,2x3,3x2,3x3 etc.
+    row,coloumn=len(matrix),len(matrix[0]) 
+    
+#loop for every element of list matrix
+    for row_e in matrix:
+
+#new row formula:
+        new_row=len(matrix)-(row_count+1)
+
+#loop for every element of sub-list of list matrix 
+        for column_e in row_e:
+
+#new column formula
+            new_column=column_count
+
+#on transpose we have new rows and new columns interchanged 
+            matrix_transpose.append(matrix[new_column][new_row])
+    
+            column_count+=1 #increment the column count
+        
+        row_count+=1 #increment the row count
+        
+        column_count=0 #reset column count
+        
+    matrix_transpose.reverse() #reverse the transpose matrix
+    
+#convert 1D list to 2D list
+    matrix_rotate=[matrix_transpose[i:i+row] for i in range(0,len(matrix_transpose),row)]
+    
+#return the clockwise-right-angled rotated matrix
+    return matrix_rotate
