@@ -1,0 +1,23 @@
+#using string method
+def parse_roman_numeral(numeral):
+    add,sub,decimal=0,0,0
+    I,V,X,L,C,D,M=1,5,10,50,100,500,1000 #assign roman variable/numeric their decimal value
+    
+#loop until length of the string numeral and check for roman numerals and assign decimal values
+    for i in range(len(numeral)):
+        if numeral[i]=='I': add=I     #I = one
+        elif numeral[i]=='V': add=V   #V = five
+        elif numeral[i]=='X': add=X   #X = ten
+        elif numeral[i]=='L': add=L   #L = fifty
+        elif numeral[i]=='C': add=C   #C = hundred
+        elif numeral[i]=='D': add=D   #D = five-hundred
+        elif numeral[i]=='M': add=M   #M = one-thousand
+            
+#check if previous value is less than current and substract
+#sub twice to compensate for previous loop addition
+        if i>0 and add>sub: add=add-sub*2 
+
+        decimal=decimal+add #cumulate the decimal equivalent
+        sub=add             #swap the add to sub for next loop
+        add=0               #reset the add number
+    return decimal          #return the decimal
