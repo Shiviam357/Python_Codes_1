@@ -1,0 +1,28 @@
+#using List Method
+def parse_roman_numeral(numeral):
+    add,decimal,number=0,0,[]
+    
+#assign roman variable/numeric their decimal value
+    I,V,X,L,C,D,M=1,5,10,50,100,500,1000
+
+#loop until every element of string numeral and append roman numerals and decimal equivalents
+    for n in numeral:
+        if n=='I':number.append([n,I])
+        elif n=='V':number.append([n,V])
+        elif n=='X':number.append([n,X])
+        elif n=='L':number.append([n,L])
+        elif n=='C':number.append([n,C])
+        elif n=='D':number.append([n,D])
+        elif n=='M':number.append([n,M])
+            
+#calculate decimal equivalent
+    for i in range(len(number)-1):
+
+#if previous roman numeral is less than current one then we substract
+        if number[i][1]<number[i+1][1]: add=-number[i][1]
+        
+        else: add=number[i][1]     #otherwise we add
+        decimal=decimal+add        #cumulate the decimal equivalent
+        add=0                      #reset add  
+    decimal=decimal+number[i+1][1] #loop runs until length-1 so  we add the last element
+    return decimal                 #return decimal
