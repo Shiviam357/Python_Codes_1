@@ -1,0 +1,10 @@
+def build_acronym(acronym):
+    acronym_list=acronym.split()
+    AKRYNM=''
+    for a in acronym_list:
+        a.lower()
+        index=acronym_list.index(a)
+        if index>0 and (a=='a'or a=='for'or a=='an'or a=='and'or a=='by'or a=='of'): continue
+        if index==0 or (index>0 and (a!='a'or a!='for'or a!='an'or a!='and'or a!='by'or a!='of')):
+            AKRYNM=AKRYNM+a[0].upper()  
+    return AKRYNM
