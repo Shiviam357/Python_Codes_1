@@ -1,0 +1,8 @@
+#using count function
+def all_unique(s):
+    S=[]
+    for s1 in s:
+        S.append(s1)
+        if S.count(s1)>1: return False
+        else: continue
+    return True
