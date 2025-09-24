@@ -1,0 +1,7 @@
+#using in fucntion
+def all_unique(s):
+    S=[]
+    for s1 in s:
+        if s1 in S: return False
+        else: S.append(s1)
+    return True
