@@ -1,0 +1,7 @@
+def reverse_sentence(sentence):
+    S0=sentence.split()          #covert str to list type
+    sentence=''                  #reset the str to null
+    for s0 in S0[::-1]:          #traverse the list element in reverse
+        sentence=sentence+s0+' ' #concatenate list elements in str type with whitespece
+    sentence=sentence.strip()    #remove extra whitespace at last
+    return sentence              #return the reverse sentence
