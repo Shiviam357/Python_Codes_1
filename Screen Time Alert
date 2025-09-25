@@ -1,0 +1,11 @@
+def too_much_screen_time(hours):
+    s3,s7,c=0,0,0                        #intialize s3:sum of three-days,s7:sum of seven-days and c:counter to zero
+    for h in hours:                      #loop for all elemenst of list hour
+        if h>=10: return True            #condition1: too much screen time if hours >= 10
+        s7=s7+h                          #sum of seven days
+        s3=s3+h                          #sum of three consecutive days
+        c+=1                             #counter t count three consecutive days
+        if c==3 and s3/3>=8: return True #condition2: too much screen time if hours >= 10
+        if c==3 and s3/3<8: c=0;s3=0     #reset cunter and sum of three consecutive days
+    if s7/7>=6: return True              #condition3: too much screen time if hours >= 10
+    return False                         #return False if no conditions are met
