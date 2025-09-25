@@ -1,0 +1,7 @@
+def find_missing_numbers(arr):
+    arr1=[]                          #initialize an empty list
+    arr.sort()                       #condtion1: sort array in ascending order
+    for n in range(arr[0],arr[-1]):  #loop from samllest(intial) to largest(final) number
+        if n in arr: continue        #condtion2.a: skip appending with exisiting numbers
+        else: arr1.append(n)         #condtion2.b: append new array list with missing numbers
+    return arr1                      #return desired arrray of missing number
