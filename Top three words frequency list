@@ -1,0 +1,19 @@
+def get_words(paragraph):
+    P,P1=[],[]                          #intializing empty lists
+    paragraph=paragraph.lower()         #Conditon#1:   changing str to: lowercase
+    paragraph=paragraph.replace('!','') #Conditon#2.a: replacing all '!'(exclamation) with ''(null) 
+    paragraph=paragraph.replace(',','') #Conditon#2.b: replacing all ','(comma) with ''(null)
+    paragraph=paragraph.replace('.','') #Conditon#2.c: replacing all '.'(period) with ''(null)
+    p=paragraph.split()                 #changing str to list type
+
+#appending word frequency count in 2D list
+    for p0 in p:        P.append([p0,p.count(p0)])
+
+#2D array reverse sorting
+    P2 = sorted(P, key=lambda row: row[1], reverse=True)
+
+#filtering top 3 elements  
+    for p2 in P2:
+        if len(P1)==3: return P1                           #return list if it has three elements
+        if p2[0] in P1 and len(P1)<3: continue             #continue until we've same and less than three elements
+        if p2[0] not in P1 and len(P1)<3: P1.append(p2[0]) #append only row-one::if unique element found and list has less than three elements
