@@ -1,0 +1,5 @@
+def adjust_thermostat(temp, target):
+    instruction=['heat','cool','hold']
+    if temp<target: return instruction[0]
+    if temp>target: return instruction[1]
+    if temp==target: return instruction[2]
